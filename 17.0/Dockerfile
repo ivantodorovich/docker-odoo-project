@@ -12,25 +12,18 @@ ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
 
 # build and dev packages
+# build and dev packages
 ENV BUILD_PACKAGE \
-    build-essential \
-    gcc \
-    libevent-dev \
-    libfreetype6-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    libsasl2-dev \
-    libldap2-dev \
-    libssl-dev \
-    libjpeg-dev \
-    libpng-dev \
-    zlib1g-dev \
     git
 
+# run in a virtualenv
+RUN python3 -m venv .venv
+RUN . .venv/bin/activate
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 # wkhtml-buster is kept as in official image, no deb available for bullseye
 RUN set -x; \
-        sh -c /install/package_odoo.sh \
+        sh -c /install/package_odoo_common.sh \
+        && /install/package_odoo.sh \
         && /install/setup-pip.sh \
         && /install/postgres.sh \
         && /install/kwkhtml_client.sh \

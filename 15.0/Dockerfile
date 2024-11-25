@@ -3,8 +3,8 @@ ARG UID=999
 # create the working directory and a place to set the logs (if wanted)
 RUN mkdir -p /odoo /var/log/odoo
 
-COPY ./base_requirements.txt /odoo
 COPY ./install /install
+COPY ./base_requirements.txt /odoo
 
 # Moved because there was a bug while installing `odoo-autodiscover`. There is
 # an accent in the contributor name
@@ -27,10 +27,12 @@ ENV BUILD_PACKAGE \
     zlib1g-dev \
     git
 
+
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 # wkhtml-buster is kept as in official image, no deb available for bullseye
 RUN set -x; \
-        sh -c /install/package_odoo.sh \
+        sh -c /install/package_odoo_common.sh \
+        && /install/package_odoo.sh \
         && /install/setup-pip.sh \
         && /install/postgres.sh \
         && /install/kwkhtml_client.sh \
