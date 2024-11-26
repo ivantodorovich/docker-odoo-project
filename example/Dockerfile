@@ -23,11 +23,11 @@ RUN set -x; \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements.txt /odoo/
+#COPY ./requirements.txt /odoo/
 USER odoo
 WORKDIR /odoo
 RUN pip install --user -e .
-RUN pip install --user -r requirements.txt 
+#RUN pip install --user -r requirements.txt 
 
 # Project's specifics packages
 
