@@ -23,7 +23,6 @@ echo "Creating $SRC"
 
 cp -r ${VERSION}/. $SRC/
 cp -r bin/ $SRC
-cp -rT common/ $SRC
 cp -r install/ $SRC
 cp -r start-entrypoint.d/ $SRC
 cp -r before-migrate-entrypoint.d/ $SRC
