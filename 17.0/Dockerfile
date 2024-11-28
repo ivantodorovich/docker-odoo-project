@@ -23,6 +23,7 @@ RUN . .venv/bin/activate
 # wkhtml-buster is kept as in official image, no deb available for bullseye
 RUN set -x; \
         sh -c /install/package_odoo_common.sh \
+        && /install/package_odoo_common_custom.sh \
         && /install/package_odoo.sh \
         && /install/setup-pip.sh \
         && /install/postgres.sh \
