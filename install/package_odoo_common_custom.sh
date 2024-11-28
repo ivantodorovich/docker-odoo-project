@@ -15,8 +15,8 @@ apt-get install -y --no-install-recommends \
  python3-argh \
  python3-watchdog \
  python3-atomicwrites \
- python3-attrs \
- python3-beautifulsoup4 \
+ python3-attr \
+ python3-bs4 \
  python3-future \
  python3-mccabe \
  python3-more-itertools \
@@ -28,4 +28,4 @@ apt-get install -y --no-install-recommends \
  python3-pyflakes \
  python3-unicodecsv \
  python3-wrapt \
- python3-disutils 
+ python3-distutils 

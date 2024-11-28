@@ -32,10 +32,6 @@ trap on_exit EXIT
 
 cp -r ${VERSION}/. ${TMP}/
 cp -r bin/ ${TMP}
-cp ${TMP}/Dockerfile-onbuild ${TMP}/Dockerfile-batteries-onbuild
-sed -i "1i FROM ${BUILD_TAG}" ${TMP}/Dockerfile-onbuild
-sed -i "1i FROM ${BUILD_TAG}" ${TMP}/Dockerfile-batteries
-sed -i "1i FROM ${BUILD_TAG}-batteries" ${TMP}/Dockerfile-batteries-onbuild
 cp -r install/ ${TMP}
 cp -r start-entrypoint.d/ ${TMP}
 cp -r before-migrate-entrypoint.d/ ${TMP}
