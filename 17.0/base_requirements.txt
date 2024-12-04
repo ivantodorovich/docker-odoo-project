@@ -5,6 +5,7 @@ lxml-html-clean==0.4.1
 
 
 # Migration tools
-marabunta==0.12.0
+#marabunta==0.12.0
+-e git+https://github.com/camptocamp/marabunta@disutilsremoved#egg=marabunta
 -e git+https://github.com/camptocamp/anthem@master#egg=anthem
 

@@ -17,8 +17,6 @@ ENV BUILD_PACKAGE \
     git
 
 # run in a virtualenv
-RUN python3 -m venv .venv
-RUN . .venv/bin/activate
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 # wkhtml-buster is kept as in official image, no deb available for bullseye
 RUN set -x; \
@@ -51,6 +49,12 @@ RUN adduser --disabled-password -u $UID --gecos '' odoo \
 
 VOLUME ["/data/odoo", "/var/log/odoo"]
 USER odoo
+#RUN python3 -m venv /odoo/.venv  --system-site-packages
+#RUN . /odoo/.venv/bin/activate
+
+RUN set -x; \
+        sh -c pip install -r /odoo/base_requirements.txt --ignore-installed 
+
 # Expose Odoo services
 EXPOSE 8069 8072
 

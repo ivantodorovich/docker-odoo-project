@@ -26,6 +26,8 @@ RUN set -x; \
 #COPY ./requirements.txt /odoo/
 USER odoo
 WORKDIR /odoo
+# run in a virtualenv
+
 RUN pip install --user -e .
 #RUN pip install --user -r requirements.txt 
 

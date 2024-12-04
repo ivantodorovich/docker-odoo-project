@@ -28,4 +28,5 @@ apt-get install -y --no-install-recommends \
  python3-pyflakes \
  python3-unicodecsv \
  python3-wrapt \
- python3-distutils 
+ python3-distutils \
+ python3-apt
