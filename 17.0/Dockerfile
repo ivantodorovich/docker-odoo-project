@@ -49,8 +49,8 @@ RUN adduser --disabled-password -u $UID --gecos '' odoo \
 
 VOLUME ["/data/odoo", "/var/log/odoo"]
 USER odoo
-#RUN python3 -m venv /odoo/.venv  --system-site-packages
-#RUN . /odoo/.venv/bin/activate
+RUN python3 -m venv /odoo/.venv  --system-site-packages
+RUN . /odoo/.venv/bin/activate
 
 RUN set -x; \
         sh -c pip install -r /odoo/base_requirements.txt --ignore-installed 
